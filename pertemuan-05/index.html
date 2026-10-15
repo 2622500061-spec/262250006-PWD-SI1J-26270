@@ -1,12 +1,232 @@
-﻿<!DOCTYPE html>
+﻿
+<!DOCTYPE html>
 <html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>pertemuan-05</title>
+    <title>Profil Mahasiswa</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>pertemuan-05</h1>
-    <p>Latihan Pemrograman Web Dasar</p>
+    <header>
+        <h1>Profil Mahasiswa</h1>
+        <p>
+            Halo, selamat datang di halaman profil praktikum
+            Pemrograman Web Dasar saya.
+        </p>
+
+        <nav aria-label="Navigasi utama">
+            <ul>
+                <li><a href="#home">Beranda</a></li>
+                <li><a href="#about">Tentang Saya</a></li>
+                <li><a href="#target">Target Belajar</a></li>
+                <li><a href="#contact">Kontak</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Bagian Home -->
+        <section id="home">
+            <h2>Beranda</h2>
+            <p>
+                Selamat datang di halaman profil mahasiswa saya.
+                Halaman ini dikembangkan sebagai artefak praktikum
+                mata kuliah Pemrograman Web Dasar dengan HTML5
+                dan CSS responsif.
+            </p>
+
+            <img
+                src="img/foto-profil.jpg"
+                alt="Foto profil mahasiswa"
+                width="240"
+            >
+        </section>
+
+        <!-- Bagian Tentang Saya -->
+        <section id="about">
+            <h2>Tentang Saya</h2>
+
+            <h3>Profil Singkat</h3>
+            <p>
+                Saya mahasiswa Program Studi Sistem Informasi.
+            </p>
+
+            <h3 id="target">Target Belajar</h3>
+            <ol>
+                <li>Memahami struktur HTML5.</li>
+                <li>Menyusun halaman web semantik.</li>
+                <li>Melakukan validasi dokumen HTML.</li>
+                <li>Menerapkan CSS Box Model, Flexbox, dan Grid.</li>
+                <li>Membuat halaman web responsif dengan pendekatan mobile-first.</li>
+            </ol>
+        </section>
+
+        <!-- Bagian Kontak -->
+        <section id="contact">
+            <h2>Kontak</h2>
+
+            <p>
+                Email:
+                <a href="mailto:2622500061@mahasiswa.atmaluhur.ac.id">
+                    2622500061@mahasiswa.atmaluhur.ac.id
+                </a>
+            </p>
+
+            <p>
+                Kunjungi
+                <a
+                    href="https://github.com/2622500061-spec"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    profil GitHub saya
+                </a>.
+            </p>
+
+            <form action="index.html" method="get">
+                <!-- Nama Lengkap -->
+                <div class="form-group">
+                    <label for="nama">Nama Lengkap</label>
+                    <input
+                        class="input-form"
+                        type="text"
+                        id="nama"
+                        name="nama"
+                        placeholder="Masukkan nama lengkap"
+                        minlength="3"
+                        maxlength="50"
+                        autocomplete="name"
+                        required
+                    >
+                </div>
+
+                <!-- Email -->
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input
+                        class="input-form"
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="nama@email.com"
+                        autocomplete="email"
+                        required
+                    >
+                </div>
+
+                <!-- Semester -->
+                <div class="form-group">
+                    <label for="semester">Semester</label>
+                    <input
+                        class="input-form"
+                        type="number"
+                        id="semester"
+                        name="semester"
+                        min="1"
+                        max="14"
+                        required
+                    >
+                </div>
+
+                <!-- Tanggal Kunjungan -->
+                <div class="form-group">
+                    <label for="tanggal">Tanggal Kunjungan</label>
+                    <input
+                        class="input-form"
+                        type="date"
+                        id="tanggal"
+                        name="tanggal"
+                        required
+                    >
+                </div>
+
+                <!-- Jenis Pesan -->
+                <fieldset class="form-group choice-group">
+                    <legend>Jenis Pesan</legend>
+
+                    <div class="choice-option">
+                        <input
+                            type="radio"
+                            id="pertanyaan"
+                            name="jenis_pesan"
+                            value="pertanyaan"
+                            required
+                        >
+                        <label for="pertanyaan">Pertanyaan</label>
+                    </div>
+
+                    <div class="choice-option">
+                        <input
+                            type="radio"
+                            id="saran"
+                            name="jenis_pesan"
+                            value="saran"
+                        >
+                        <label for="saran">Saran</label>
+                    </div>
+                </fieldset>
+
+                <!-- Topik yang Diminati -->
+                <fieldset class="form-group choice-group">
+                    <legend>Topik yang Diminati</legend>
+
+                    <div class="choice-option">
+                        <input
+                            type="checkbox"
+                            id="minat-html"
+                            name="minat"
+                            value="HTML"
+                        >
+                        <label for="minat-html">HTML</label>
+                    </div>
+
+                    <div class="choice-option">
+                        <input
+                            type="checkbox"
+                            id="minat-css"
+                            name="minat"
+                            value="CSS"
+                        >
+                        <label for="minat-css">CSS</label>
+                    </div>
+                </fieldset>
+
+                <!-- Program Studi -->
+                <div class="form-group">
+                    <label for="prodi">Program Studi</label>
+                    <select
+                        class="input-form"
+                        id="prodi"
+                        name="prodi"
+                        required
+                    >
+                        <option value="">-- Pilih Program Studi --</option>
+                        <option value="SI">Sistem Informasi</option>
+                        <option value="TI">Teknik Informatika</option>
+                    </select>
+                </div>
+
+                <!-- Pesan -->
+                <div class="form-group">
+                    <label for="pesan">Pesan</label>
+                    <textarea
+                        class="input-form"
+                        id="pesan"
+                        name="pesan"
+                        maxlength="300"
+                        placeholder="Tulis pesan Anda"
+                        required
+                    ></textarea>
+                </div>
+
+                <button type="submit">Kirim</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 RICO [2622500061]</p>
+    </footer>
 </body>
 </html>

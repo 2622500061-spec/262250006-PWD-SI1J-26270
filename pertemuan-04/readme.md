@@ -56,4 +56,4 @@ Repository Latihan Pertemuan-1 sampai dengan Pertemuan-16 Matakuliah Pemrograman
 
 ## GitHub Pages
 
-URL: [Isi dengan URL GitHub Pages untuk folder pertemuan-04 setelah halaman berhasil dipublikasikan.]
+URL: [https://github.com/2622500061-spec/262250006-PWD-SI1J-26270/tree/main/pertemuan-04]

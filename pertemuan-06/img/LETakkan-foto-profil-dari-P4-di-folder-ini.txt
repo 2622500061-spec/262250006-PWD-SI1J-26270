@@ -1,0 +1,1 @@
+Salin foto-profil.jpg dari artefak P4 ke direktori ini dan pastikan nama akhirnya img/foto-profil.jpg.

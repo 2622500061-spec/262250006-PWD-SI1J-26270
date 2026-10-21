@@ -1,281 +1,411 @@
-
-/* =========================================
-   D. CSS BOX MODEL DAN PENGATURAN DASAR
-========================================= */
-
+/* ================================
+   1. Reset
+================================ */
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
+/* ================================
+   2. Variables
+================================ */
+:root {
+  --color-primary: #003366;
+  --color-primary-hover: #00264d;
+  --color-heading: #1f4e78;
+  --color-text: #111827;
+  --color-text-muted: #333333;
+  --color-page: #eef2f7;
+  --color-surface: #ffffff;
+  --color-contact: #f8fafc;
+  --color-border: #d0d7de;
+  --color-border-strong: #94a3b8;
+  --color-focus: #fbbf24;
+  --color-error: #b42318;
+  --color-success: #216e39;
+  --font-main: Arial, sans-serif;
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --radius-small: 4px;
+  --transition-fast: 0.3s ease;
+}
+
+/* ================================
+   3. Base
+================================ */
 body {
-    margin: 0;
-    padding: 12px;
-    font-family: Arial, sans-serif;
-    color: #111827;
-    background-color: #eef2f7;
+  margin: 0;
+  padding: var(--space-3);
+  color: var(--color-text);
+  background-color: var(--color-page);
+  font-family: var(--font-main);
+  line-height: 1.5;
 }
 
-/* Header */
-header {
-    background-color: #003366;
-    color: #ffffff;
-    padding: 20px;
-    margin-bottom: 20px;
-    border: 1px solid #00264d;
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
 }
 
-header h1 {
-    margin: 0 0 16px;
-    font-size: 28px;
+a {
+  overflow-wrap: anywhere;
 }
 
-header p {
-    line-height: 1.6;
-}
-
-/* =========================================
-   E. CSS FLEXBOX UNTUK NAVIGASI
-   Kondisi dasar: layar mobile
-========================================= */
-
-nav ul {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
-    gap: 8px;
-    margin: 0;
-    padding: 0;
-    list-style: none;
-}
-
-nav a {
-    color: #ffffff;
-    font-weight: bold;
-    text-decoration: none;
-}
-
-nav a:hover {
-    text-decoration: underline;
-}
-
-/* Fokus keyboard */
-nav a:focus-visible,
 a:focus-visible,
 button:focus-visible,
 input:focus-visible,
 select:focus-visible,
 textarea:focus-visible {
-    outline: 3px solid #fbbf24;
-    outline-offset: 2px;
+  outline: 3px solid var(--color-focus);
+  outline-offset: 2px;
 }
 
-/* =========================================
-   F. CSS GRID UNTUK TATA LETAK UTAMA
-   Mobile-first: satu kolom
-========================================= */
+/* ================================
+   4. Header and navigation
+================================ */
+header,
+footer {
+  max-width: 1200px;
+  margin-right: auto;
+  margin-left: auto;
+  border: 1px solid var(--color-primary-hover);
+  background-color: var(--color-primary);
+  color: var(--color-surface);
+}
+
+header {
+  margin-bottom: var(--space-5);
+  padding: var(--space-5);
+}
+
+.header-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+}
+
+header h1 {
+  margin: 0 0 var(--space-2);
+  font-size: clamp(1.5rem, 4vw, 1.75rem);
+}
+
+header p {
+  margin: 0;
+  line-height: 1.6;
+}
+
+nav {
+  margin-top: var(--space-4);
+}
+
+#navMenu {
+  display: none;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-3);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+#navMenu.nav-open {
+  display: flex;
+}
+
+nav a {
+  color: var(--color-surface);
+  font-weight: 700;
+  text-decoration: none;
+  transition: opacity var(--transition-fast);
+}
+
+nav a:hover {
+  text-decoration: underline;
+  opacity: 0.85;
+}
+
+.nav-toggle {
+  display: block;
+  flex-shrink: 0;
+  padding: var(--space-2);
+  border: 1px solid rgb(255 255 255 / 35%);
+  border-radius: var(--radius-small);
+  background-color: transparent;
+  color: var(--color-surface);
+  font-size: 1.8rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: background-color var(--transition-fast);
+}
+
+.nav-toggle:hover {
+  background-color: var(--color-primary-hover);
+}
+
+/* ================================
+   5. Main layout and sections
+================================ */
+main {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-4);
+  max-width: 1200px;
+  margin: 0 auto;
+}
 
 section {
-    width: 100%;
+  width: 100%;
+  min-width: 0;
+  padding: var(--space-5);
+  border: 1px solid var(--color-border);
+  background-color: var(--color-surface);
 }
 
-main {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 16px;
-}
-
-/* Bagian Home */
-#home {
-    background-color: #ffffff;
-    border: 1px solid #d0d7de;
-    padding: 20px;
-    margin: 0;
-}
-
-#home h2 {
-    color: #003366;
-    border-bottom: 2px solid #003366;
-    padding-bottom: 6px;
-    margin-top: 0;
-    margin-bottom: 16px;
+section h2 {
+  margin: 0 0 var(--space-4);
+  padding-bottom: 6px;
+  border-bottom: 2px solid var(--color-primary);
+  color: var(--color-primary);
 }
 
 #home p {
-    line-height: 1.6;
-    margin: 0 0 16px;
+  margin: 0 0 var(--space-4);
+  line-height: 1.6;
 }
 
 #home img {
-    display: block;
-    width: 240px;
-    max-width: 100%;
-    height: auto;
-    border: 1px solid #cbd5e1;
-}
-
-/* Bagian Tentang Saya */
-#about {
-    background-color: #ffffff;
-    border: 1px solid #d0d7de;
-    padding: 20px;
-    margin: 0;
-    font-family: Arial, sans-serif;
-}
-
-#about h2 {
-    color: #003366;
-    border-bottom: 2px solid #003366;
-    padding-bottom: 6px;
-    margin-top: 0;
-    margin-bottom: 16px;
+  width: 240px;
+  border: 1px solid #cbd5e1;
+  border-radius: var(--radius-small);
 }
 
 #about h3 {
-    color: #1f4e78;
-    margin-bottom: 6px;
+  margin-bottom: 6px;
+  color: var(--color-heading);
 }
 
 #about p {
-    line-height: 1.5;
-    margin: 6px 0;
+  margin: 6px 0;
+  line-height: 1.5;
 }
 
 #about ol {
-    color: #333333;
-    margin: 8px 0;
-    padding: 8px 24px;
-    border: 1px solid #e6e6e6;
-    line-height: 1.6;
+  margin: var(--space-2) 0;
+  padding: var(--space-2) var(--space-5) var(--space-2) 36px;
+  border: 1px solid #e6e6e6;
+  color: var(--color-text-muted);
+  line-height: 1.6;
 }
 
-/* =========================================
-   D.4. PENATAAN BAGIAN KONTAK DAN FORMULIR
-========================================= */
+#target {
+  scroll-margin-top: var(--space-5);
+}
 
+/* ================================
+   6. Contact and form components
+================================ */
 #contact {
-    background-color: #f8fafc;
-    border: 1px solid #cbd5e1;
-    padding: 20px;
-    margin: 0;
-    font-family: Arial, sans-serif;
-}
-
-#contact h2 {
-    color: #003366;
-    border-bottom: 2px solid #003366;
-    padding-bottom: 6px;
-    margin-top: 0;
-    margin-bottom: 16px;
+  background-color: var(--color-contact);
 }
 
 #contact p {
-    line-height: 1.6;
-    overflow-wrap: anywhere;
+  line-height: 1.6;
+  overflow-wrap: anywhere;
 }
 
 .form-group {
-    margin: 12px 0;
+  min-width: 0;
+  margin: var(--space-3) 0;
 }
 
 #contact label {
-    color: #1f2937;
-    font-weight: bold;
+  color: #1f2937;
+  font-weight: 700;
+}
+
+.form-group > label {
+  display: block;
+  margin-bottom: var(--space-1);
 }
 
 .input-form {
-    display: block;
-    width: 100%;
-    max-width: 100%;
-    background-color: #ffffff;
-    color: #111827;
-    font-family: Arial, sans-serif;
-    font-size: 16px;
-    padding: 8px;
-    margin: 4px 0;
-    border: 1px solid #94a3b8;
-    border-radius: 2px;
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  margin: var(--space-1) 0;
+  padding: var(--space-2);
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-small);
+  background-color: var(--color-surface);
+  color: var(--color-text);
+  font-family: var(--font-main);
+  font-size: 16px;
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.input-form:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 2px rgb(0 51 102 / 12%);
 }
 
 #contact textarea {
-    min-height: 80px;
-    resize: vertical;
+  min-height: 100px;
+  resize: vertical;
 }
 
-/* Radio button dan checkbox */
 .choice-group {
-    min-width: 0;
-    padding: 10px 12px;
-    border: 1px solid #cbd5e1;
+  padding: var(--space-3);
+  border: 1px solid #cbd5e1;
+  border-radius: var(--radius-small);
 }
 
 .choice-group legend {
-    padding: 0 4px;
-    font-weight: bold;
+  padding: 0 var(--space-1);
+  font-weight: 700;
 }
 
 .choice-option {
-    margin: 6px 0;
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin: 6px 0;
 }
 
 .choice-option input {
-    margin-right: 6px;
+  flex-shrink: 0;
+  margin: 0;
 }
 
-/* Tombol */
+.choice-option label {
+  font-weight: 400;
+}
+
+.form-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-top: var(--space-4);
+}
+
 #contact button {
-    background-color: #003366;
-    color: #ffffff;
-    font-weight: bold;
-    padding: 10px 16px;
-    margin: 8px 6px 0 0;
-    border: 1px solid #003366;
-    border-radius: 2px;
-    cursor: pointer;
+  padding: 10px var(--space-4);
+  border: 1px solid var(--color-primary);
+  border-radius: var(--radius-small);
+  background-color: var(--color-primary);
+  color: var(--color-surface);
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color var(--transition-fast), transform var(--transition-fast);
 }
 
 #contact button:hover {
-    background-color: #00264d;
+  background-color: var(--color-primary-hover);
 }
 
-/* =========================================
-   D.4. FOOTER
-========================================= */
+#contact button:active {
+  transform: translateY(1px);
+}
 
+#contact .button-secondary {
+  border-color: #475569;
+  background-color: #475569;
+}
+
+#contact .button-secondary:hover {
+  background-color: #334155;
+}
+
+#formFeedback {
+  min-height: 1.5em;
+  margin-bottom: 0;
+  font-weight: 700;
+}
+
+.form-feedback-error {
+  color: var(--color-error);
+}
+
+.form-feedback-success {
+  color: var(--color-success);
+}
+
+/* ================================
+   7. Footer
+================================ */
 footer {
-    background-color: #003366;
-    color: #ffffff;
-    text-align: center;
-    padding: 14px 20px;
-    margin-top: 20px;
-    border: 1px solid #00264d;
+  margin-top: var(--space-5);
+  padding: 14px var(--space-5);
+  text-align: center;
 }
 
 footer p {
-    margin: 0;
+  margin: 0;
 }
 
-/* =========================================
-   G. RESPONSIVE WEB DESIGN
-   Breakpoint: 768px
-========================================= */
+/* ================================
+   8. Responsive layout
+================================ */
+@media (min-width: 480px) {
+  body {
+    padding: var(--space-4);
+  }
+
+  #navMenu {
+    gap: var(--space-4);
+  }
+}
 
 @media (min-width: 768px) {
-    /* Grid berubah menjadi dua kolom */
-    main {
-        grid-template-columns: 1fr 1fr;
-    }
+  nav {
+    margin-top: var(--space-4);
+  }
 
-    /* Navigasi berubah menjadi horizontal */
-    nav ul {
-        flex-direction: row;
-        justify-content: flex-start;
-        align-items: center;
-        gap: 16px;
-    }
+  #navMenu {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: var(--space-4);
+  }
 
-    /* Bagian Contact memenuhi seluruh lebar Grid */
-    #contact {
-        grid-column: 1 / -1;
-    }
+  .nav-toggle {
+    display: none;
+  }
+
+  main {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  #contact {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (min-width: 1024px) {
+  body {
+    padding: var(--space-5);
+  }
+
+  main {
+    gap: var(--space-5);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0s;
+  }
 }

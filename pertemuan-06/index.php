@@ -6,7 +6,7 @@ $nim = "2622500061";
 $namaMahasiswa = "Muhammad Rico";
 $programStudi = "SI";
 $tahunAkademik = "2026/2027";
-$semester = 2;
+$semester = 1;
 $ipk = 3.75;
 $statusAktif = true;
 $catatanTambahan = null;
@@ -143,7 +143,7 @@ switch ($programStudi) {
                 Semester:
                 <?php echo $semester . " (" . $keteranganSemester . ")"; ?>
             </p>
-
+ 
             <p>
                 Saya mahasiswa Program Studi Sistem Informasi.
             </p>

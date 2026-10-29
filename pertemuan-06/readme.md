@@ -1,7 +1,6 @@
-# P6 - PHP Dasar dan Pemrograman Sisi Peladen
-
 ## Deskripsi
 Proyek ini melanjutkan artefak P5 milik Muhammad Rico pada mata kuliah Pemrograman Web Dasar, Tahun Ajaran 2026/2027 Semester Gasal. Struktur HTML telah dipindahkan ke `index.php` agar PHP dapat diproses melalui peladen web lokal. CSS responsif, JavaScript navigasi dan validasi sisi klien, serta gambar profil dari P5 tetap dipertahankan.
+#P Dasar dan Pemrogra P6 - PHman Sisi Peladen
 
 ## Identitas Proyek
 - Nama: Muhammad Rico

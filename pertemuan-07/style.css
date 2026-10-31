@@ -409,3 +409,37 @@ footer p {
     transition-duration: 0s;
   }
 }
+
+/* Hasil pengiriman GET untuk versi GitHub Pages */
+.submission-result {
+  margin-top: 24px;
+  padding: 18px;
+  border: 1px solid var(--color-border);
+  border-left: 4px solid var(--color-primary);
+  border-radius: 6px;
+  background-color: var(--color-surface);
+}
+
+.submission-result[hidden] {
+  display: none;
+}
+
+.submission-result h3 {
+  margin: 0 0 12px;
+  color: var(--color-primary);
+}
+
+.submission-result p {
+  margin: 8px 0;
+  overflow-wrap: anywhere;
+}
+
+.submission-result ul {
+  margin: 6px 0 12px;
+  padding-left: 24px;
+}
+
+.submission-result .result-note {
+  color: var(--color-text-muted);
+  font-size: 0.92rem;
+}

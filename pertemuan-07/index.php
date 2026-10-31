@@ -16,7 +16,7 @@ $pesanKesalahan = '';
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Memeriksa keberadaan dan kelengkapan data.
     if (trim($nama ?? '') === '') {
-        $pesanKesalahan .= 'Nama lengkap wajib diisi. ';
+        $pesanKesalahan .= 'Nama lengkap harus diisi. ';
     }
 
     if (trim($email) === '') {

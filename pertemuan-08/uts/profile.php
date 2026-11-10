@@ -27,15 +27,15 @@
                 </tr>
                 <tr>
                     <td>Alamat</td>
-                    <td>: Jl. Pendidikan No. 123, Kota Anda</td>
+                    <td>: Jl.Gandaria 2</td>
                 </tr>
                 <tr>
                     <td>Email</td>
-                    <td>: rico@example.com</td>
+                    <td>: 2622500061@mahasiswa.atmaluhur.ac.id</td>
                 </tr>
                 <tr>
                     <td>Hobi</td>
-                    <td>: Coding, Fotografi, Desain Web</td>
+                    <td>: Pembrograman dan Fotografi</td>
                 </tr>
             </table>
             <p class="bio-desc">Saya adalah seorang mahasiswa yang berdedikasi dan memiliki minat besar di bidang 

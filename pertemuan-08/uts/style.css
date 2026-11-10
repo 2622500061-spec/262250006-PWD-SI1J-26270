@@ -215,6 +215,85 @@ hr {
     border-radius: 4px;
 }
 
+/* =========================================
+   GALERI HASIL FOTOGRAFI
+   Grid 3 kolom dan crop gambar rasio 1:1
+========================================= */
+.photography-section {
+    width: 100%;
+    margin: 25px 0;
+}
+
+.photography-section h3 {
+    margin-bottom: 8px;
+    color: #1a252f;
+}
+
+.photography-description {
+    margin-bottom: 15px;
+    color: #666;
+}
+
+.photo-gallery {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 15px;
+    width: 100%;
+    align-items: start;
+}
+
+.photo-card {
+    display: block;
+    width: 100%;
+    min-width: 0;
+    margin: 0;
+    padding: 10px;
+    overflow: hidden;
+    border: 1px solid #d0d7de;
+    border-radius: 9px;
+    background: #f8fafc;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.photo-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 5px 14px rgba(0, 0, 0, 0.12);
+}
+
+/* Bingkai inilah yang mengunci ukuran tampilan menjadi persegi. */
+.photo-frame {
+    position: relative;
+    display: block;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    border-radius: 7px;
+    background: #e5e7eb;
+}
+
+/* Gambar dipaksa mengisi bingkai, bukan memakai ukuran aslinya. */
+.photo-frame img {
+    position: absolute;
+    inset: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    max-width: none;
+    max-height: none;
+    object-fit: cover;
+    object-position: center center;
+    border: 0;
+    border-radius: 7px;
+}
+
+.photo-card figcaption {
+    margin-top: 9px;
+    color: #1a252f;
+    font-size: 14px;
+    font-weight: 700;
+}
+
 /* Form Pendaftaran */
 .form-group {
     margin-bottom: 20px;
@@ -413,8 +492,33 @@ hr {
         grid-template-columns: 1fr;
     }
 
+    .photo-gallery {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+    }
+
+    .photo-card {
+        padding: 8px;
+    }
+
     .signature-table th, .signature-table td {
         font-size: 12px;
         padding: 5px;
+    }
+}
+
+/* Layar ponsel: tetap 2 kolom, setiap bingkai tetap persegi. */
+@media (max-width: 480px) {
+    .photo-gallery {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+    }
+
+    .photo-card {
+        padding: 6px;
+    }
+
+    .photo-card figcaption {
+        font-size: 12px;
     }
 }

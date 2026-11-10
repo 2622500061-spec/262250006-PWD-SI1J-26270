@@ -1,6 +1,10 @@
 <?php
-// Mendapatkan halaman aktif, default ke 'beranda'
-$page = isset($_GET['page']) ? $_GET['page'] : 'beranda';
+// Hanya izinkan halaman yang tersedia. Halaman lain diarahkan ke beranda.
+$page = $_GET['page'] ?? 'beranda';
+$allowedPages = ['beranda', 'profile', 'pendaftaran'];
+if (!in_array($page, $allowedPages, true)) {
+    $page = 'beranda';
+}
 ?>
 <!DOCTYPE html>
 <html lang="id">
@@ -8,7 +12,7 @@ $page = isset($_GET['page']) ? $_GET['page'] : 'beranda';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blog Pribadi Muhammad Rico</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css?v=4">
 </head>
 <body>
 
@@ -31,9 +35,9 @@ $page = isset($_GET['page']) ? $_GET['page'] : 'beranda';
                 <span class="bar"></span>
             </div>
             <ul class="nav-list" id="nav-list">
-                <li><a href="index.php?page=beranda" class="nav-link">Beranda</a></li>
-                <li><a href="index.php?page=profile" class="nav-link">Profile</a></li>
-                <li><a href="index.php?page=pendaftaran" class="nav-link">Pendaftaran</a></li>
+                <li><a href="index.php?page=beranda" class="nav-link<?= $page === 'beranda' ? ' active' : '' ?>">Beranda</a></li>
+                <li><a href="index.php?page=profile" class="nav-link<?= $page === 'profile' ? ' active' : '' ?>">Profile</a></li>
+                <li><a href="index.php?page=pendaftaran" class="nav-link<?= $page === 'pendaftaran' ? ' active' : '' ?>">Pendaftaran</a></li>
             </ul>
         </nav>
 
